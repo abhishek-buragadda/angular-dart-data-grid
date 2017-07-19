@@ -1,0 +1,155 @@
+{
+  "ngDeps": {
+    "1": "",
+    "3": [
+      {
+        "1": "dart:async",
+        "5": false
+      },
+      {
+        "1": "dart:mirrors",
+        "5": false
+      },
+      {
+        "1": "package:angular2/angular2.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular2/core.dart",
+        "5": false
+      },
+      {
+        "1": "package:angular_components/angular_components.dart",
+        "5": false
+      },
+      {
+        "1": "package:polymer_elements/iron_icons.dart",
+        "5": false
+      },
+      {
+        "1": "./model/table_model.dart",
+        "5": false
+      },
+      {
+        "1": "./custom-template-outlet/NgTemplateOutlet.dart",
+        "5": false
+      }
+    ],
+    "5": [
+      {
+        "1": "CustomGridComponent",
+        "6": [
+          "OnInit"
+        ],
+        "7": [
+          {
+            "2": "materialDirectives"
+          },
+          {
+            "2": "COMMON_DIRECTIVES"
+          },
+          {
+            "2": "NgTemplateOutletCustom"
+          }
+        ]
+      }
+    ],
+    "6": "custom_grid.dart",
+    "7": [
+      {
+        "1": "package:angular2/angular2.template.dart",
+        "4": "i0"
+      },
+      {
+        "1": "package:angular2/core.template.dart",
+        "4": "i1"
+      },
+      {
+        "1": "package:angular_components/angular_components.template.dart",
+        "4": "i2"
+      },
+      {
+        "1": "./model/table_model.template.dart",
+        "4": "i3"
+      },
+      {
+        "1": "./custom-template-outlet/NgTemplateOutlet.template.dart",
+        "4": "i4"
+      }
+    ]
+  },
+  "type": {
+    "CustomGridComponent": {
+      "class": "Directive",
+      "isComponent": true,
+      "selector": "custom-grid",
+      "exportAs": null,
+      "type": {
+        "class": "Type",
+        "name": "CustomGridComponent",
+        "moduleUrl": "asset:angular_dart_data_grid/lib/src/custom-grid/custom_grid.dart",
+        "prefix": null,
+        "isHost": false,
+        "value": null,
+        "diDeps": []
+      },
+      "changeDetection": 6,
+      "inputs": {
+        "showSelection": "showSelection",
+        "showActions": "showActions",
+        "data": "data",
+        "colDefs": "colDefs",
+        "rowDetails": "rowDetails",
+        "isEditable": "isEditable"
+      },
+      "inputTypes": {
+        "showSelection": " bool",
+        "showActions": " bool",
+        "data": " dynamic",
+        "colDefs": " dynamic",
+        "rowDetails": " bool",
+        "isEditable": " bool"
+      },
+      "outputs": {
+        "onAdd": "add",
+        "onDelete": "delete",
+        "onEdit": "edit"
+      },
+      "hostListeners": {},
+      "hostProperties": {},
+      "hostAttributes": {},
+      "lifecycleHooks": [
+        0
+      ],
+      "template": {
+        "encapsulation": 0,
+        "template": "<div class=\"custom-grid\">\n    <paper-card class=\"paper-container\">\n        <div class=\"actions-container\">\n            <material-fab (click)=\"performAdd()\" icon mini raised>\n                <glyph icon=\"add\"></glyph>\n            </material-fab>\n            <material-fab (click)=\"performDelete()\" [class.hidden]=\"!showDeleteAction()\" icon mini raised>\n                <glyph icon=\"delete\"></glyph>\n            </material-fab>\n        </div>\n        <table class=\"grid-container\">\n            <thead class=\"grid-header\">\n            <th class=\"grid-header-cell select-all\">\n                <material-checkbox [(ngModel)]=\"isAllSelected\" (change)=\"selectAll()\">\n                </material-checkbox>\n            </th>\n            <th class=\"grid-header-cell\" [class.sortable]=\"colHead.isSortable\" (click)=\"sortColumn(colHead)\" *ngFor=\"let colHead of tableModel.colHeaders\">\n                <span *ngIf=\"colHead.isSortable\" class=\"icon-container\">\n                    <iron-icon class=\"small\" [class.sorted]=\"!colHead.sortDirectionAsc\"\n                               icon=\"icons:arrow-downward\"></iron-icon>\n                </span>\n                {{colHead.displayName}}\n            </th>\n            <th class=\"grid-header-cell icons\" *ngIf=\"isEditable\">Actions</th>\n            </thead>\n            <tbody class=\"grid-body\">\n            <tr *ngFor=\"let item of data;let i = index;\" class=\"grid-row\" [class.selected]=\"isSelected(i)\">\n                <td class=\"grid-row-cell select\">\n                    <material-checkbox [(ngModel)]=\"tableModel.rowModels[i].isSelected\">\n                    </material-checkbox>\n                </td>\n                <td class=\"grid-row-cell\" *ngFor=\"let colDef of colDefs;let colIndex=index\" [class.show-hide]=\"isSelected(i)\"\n                    (click)=\"showDetails(item,i)\">\n                    <div class=\"text-content\">\n                        {{getFieldValue(item,colDef.columnName)}}\n                    </div>\n                    <div class=\"icon-content\" *ngIf=\"colIndex==0\">\n                        <iron-icon [class.expanded]=\"isSelected(i)\" class=\"small\"  icon=\"icons:expand-more\"></iron-icon>\n                    </div>\n                </td>\n                <td class=\"grid-row-cell icons\" *ngIf=\"isEditable\">\n                    <material-fab icon mini raised (click)=\"updateItem(item,$event,i)\">\n                        <glyph *ngIf=\"tableModel.rowModels[i].inEditMode\" icon=\"check\"></glyph>\n                        <glyph *ngIf=\"!tableModel.rowModels[i].inEditMode\" icon=\"edit\"></glyph>\n                    </material-fab>\n                </td>\n                <td class=\"grid-row-details\" [class.open]=\"currentSelected==i\" *ngIf=\"rowDetails\">\n                    <template [ngTemplateOutletCustom]=\"template\" [ngTemplateOutletCustomContext]=\"item\"></template>\n                </td>\n\n            </tr>\n            </tbody>\n        </table>\n    </paper-card>\n</div>",
+        "templateUrl": "asset:angular_dart_data_grid/lib/src/custom-grid/custom_grid.html",
+        "styles": [],
+        "styleUrls": [
+          "asset:angular_dart_data_grid/lib/src/custom-grid/custom_grid.css"
+        ],
+        "ngContentSelectors": []
+      },
+      "providers": [],
+      "viewProviders": [],
+      "queries": [
+        {
+          "selectors": [
+            {
+              "value": "rowDetail",
+              "identifier": null,
+              "identifierIsInstance": false
+            }
+          ],
+          "descendants": false,
+          "first": true,
+          "propertyName": "template",
+          "read": null
+        }
+      ],
+      "viewQueries": []
+    }
+  },
+  "alias": {}
+}

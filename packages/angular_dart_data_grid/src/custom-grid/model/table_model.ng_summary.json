@@ -1,0 +1,34 @@
+{
+  "ngDeps": null,
+  "type": {
+    "ColHeader": {
+      "class": "Identifier",
+      "name": "ColHeader",
+      "moduleUrl": "asset:angular_dart_data_grid/lib/src/custom-grid/model/table_model.dart",
+      "prefix": null,
+      "value": null
+    },
+    "ColumnModel": {
+      "class": "Identifier",
+      "name": "ColumnModel",
+      "moduleUrl": "asset:angular_dart_data_grid/lib/src/custom-grid/model/table_model.dart",
+      "prefix": null,
+      "value": null
+    },
+    "RowModel": {
+      "class": "Identifier",
+      "name": "RowModel",
+      "moduleUrl": "asset:angular_dart_data_grid/lib/src/custom-grid/model/table_model.dart",
+      "prefix": null,
+      "value": null
+    },
+    "TableModel": {
+      "class": "Identifier",
+      "name": "TableModel",
+      "moduleUrl": "asset:angular_dart_data_grid/lib/src/custom-grid/model/table_model.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

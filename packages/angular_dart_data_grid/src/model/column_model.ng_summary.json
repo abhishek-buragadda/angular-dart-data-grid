@@ -1,0 +1,20 @@
+{
+  "ngDeps": null,
+  "type": {
+    "ColumnDefinition": {
+      "class": "Identifier",
+      "name": "ColumnDefinition",
+      "moduleUrl": "asset:angular_dart_data_grid/lib/src/model/column_model.dart",
+      "prefix": null,
+      "value": null
+    },
+    "Sample": {
+      "class": "Identifier",
+      "name": "Sample",
+      "moduleUrl": "asset:angular_dart_data_grid/lib/src/model/column_model.dart",
+      "prefix": null,
+      "value": null
+    }
+  },
+  "alias": {}
+}

@@ -1,0 +1,103 @@
+.custom-grid .actions-container {
+  position: absolute;
+  z-index: 1;
+  left: 85%;
+  top: -30px; }
+  .custom-grid .actions-container material-fab {
+    background: #eee; }
+.custom-grid .paper-container {
+  border: 1px solid #B9AFAF;
+  position: relative;
+  width: 100%;
+  min-height: 200px;
+  min-width: 600px; }
+.custom-grid .grid-container {
+  width: 96%;
+  background: #ffffff;
+  font-size: 14px;
+  border: 1px solid #dbdbdb;
+  margin: 15px auto 15px auto;
+  flex-flow: row;
+  overflow-x: scroll;
+  min-width: 500px; }
+.custom-grid .grid-row {
+  display: flex;
+  border-bottom: 1px solid #dbdbdb;
+  vertical-align: middle;
+  text-align: left;
+  width: 100%;
+  min-height: 40px;
+  flex-wrap: wrap;
+  min-width: 500px; }
+  .custom-grid .grid-row.selected {
+    background: whitesmoke; }
+  .custom-grid .grid-row-cell {
+    padding: 10px 20px 10px 20px;
+    height: 40px;
+    transition: height 436ms cubic-bezier(0.4, 0, 0.2, 1);
+    box-sizing: border-box;
+    display: flex;
+    flex-grow: 1;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    /* This is to give full control to the flex box for width .*/
+    width: 0; }
+    .custom-grid .grid-row-cell.icons {
+      padding: 0; }
+    .custom-grid .grid-row-cell.select {
+      width: 5%;
+      min-width: 50px;
+      flex-grow: 0; }
+    .custom-grid .grid-row-cell.show-hide {
+      height: 60px;
+      transition: height 436ms cubic-bezier(0.4, 0, 0.2, 1); }
+    .custom-grid .grid-row-cell .text-content {
+      text-overflow: ellipsis;
+      overflow: hidden;
+      white-space: nowrap; }
+  .custom-grid .grid-row-details {
+    display: none;
+    flex: 0 0 100%;
+    margin-left: 30px; }
+    .custom-grid .grid-row-details.open {
+      display: flex; }
+.custom-grid .grid-header {
+  border-bottom: 1px solid #dbdbdb;
+  display: flex;
+  min-width: 500px; }
+  .custom-grid .grid-header-cell {
+    height: 40px;
+    padding: 10px 20px 10px 20px;
+    display: flex;
+    text-align: left;
+    box-sizing: border-box;
+    flex-grow: 1;
+    /* This is to give full control to the flex box for width .*/
+    width: 0; }
+    .custom-grid .grid-header-cell.icons {
+      text-align: center; }
+    .custom-grid .grid-header-cell.select-all {
+      width: 5%;
+      min-width: 50px;
+      flex-grow: 0; }
+    .custom-grid .grid-header-cell.sortable {
+      cursor: pointer; }
+    .custom-grid .grid-header-cell .icon-container {
+      margin-left: -16px; }
+
+iron-icon {
+  transform: rotate(0);
+  transition: all 0.5s; }
+  iron-icon.small {
+    width: 16px;
+    height: 16px; }
+  iron-icon.sorted {
+    transform: rotate(-180deg);
+    transition: all 0.5s; }
+  iron-icon.expanded {
+    transform: rotate(-180deg);
+    transition: all 0.5s; }
+
+.hidden {
+  display: none !important; }
