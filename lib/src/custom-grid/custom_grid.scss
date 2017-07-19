@@ -1,0 +1,159 @@
+$grid-icon-size : 16px;
+$grid-font-size : 14px;
+$cell-selected-background: whitesmoke;
+$grid-border-color:#dbdbdb;
+
+.custom-grid {
+  .actions-container {
+    position: absolute;
+    z-index: 1;
+    left: 85%;
+    top: -30px;
+
+    material-fab {
+      background: #eee;
+    }
+  }
+  .paper-container {
+    border: 1px solid #B9AFAF;
+    position: relative;
+    width: 100%;
+    min-height: 200px;
+    min-width: 600px;
+  }
+
+  .grid-container {
+    width: 96%;
+    background: #ffffff;
+    font-size: $grid-font-size;
+    border: 1px solid $grid-border-color;
+    margin: 15px auto 15px auto;
+    flex-flow: row;
+    overflow-x: scroll;
+    min-width: 500px;
+  }
+
+  .grid-row {
+    display: flex;
+    border-bottom: 1px solid $grid-border-color;
+    vertical-align: middle;
+    text-align: left;
+    width: 100%;
+    min-height: 40px;
+    flex-wrap: wrap;
+    min-width: 500px;
+
+    &.selected {
+      background: $cell-selected-background;
+    }
+
+    &-cell {
+      padding: 10px 20px 10px 20px;
+      height: 40px;
+      transition: height 436ms cubic-bezier(0.4, 0, 0.2, 1);
+      box-sizing: border-box;
+      display: flex;
+      flex-grow: 1;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      overflow: hidden;
+      /* This is to give full control to the flex box for width .*/
+      width: 0;
+
+      &.icons {
+        padding: 0;
+
+      }
+      &.select {
+        width: 5%;
+        min-width: 50px;
+        flex-grow: 0;
+
+      }
+      &.show-hide {
+        height: 60px;
+        transition: height 436ms cubic-bezier(0.4, 0, 0.2, 1);
+      }
+      .text-content {
+        text-overflow: ellipsis;
+        overflow: hidden;
+        white-space: nowrap;
+      }
+
+
+    }
+    &-details {
+      display: none;
+      flex: 0 0 100%;
+      margin-left: 30px;
+
+      &.open {
+        display: flex;
+      }
+    }
+
+  }
+
+  .grid-header {
+    border-bottom: 1px solid $grid-border-color;
+    display: flex;
+    min-width: 500px;
+
+    &-cell {
+      height: 40px;
+      padding: 10px 20px 10px 20px;
+      display: flex;
+      text-align: left;
+      box-sizing: border-box;
+      flex-grow: 1;
+      /* This is to give full control to the flex box for width .*/
+      width: 0;
+
+      &.icons {
+        text-align: center;
+      }
+
+      &.select-all {
+        width: 5%;
+        min-width: 50px;
+        flex-grow: 0;
+
+      }
+      &.sortable {
+        cursor: pointer;
+      }
+
+      .icon-container{
+        margin-left: -$grid-icon-size;
+      }
+
+    }
+
+  }
+
+}
+
+iron-icon{
+  transform: rotate(0);
+  transition: all 0.5s;
+
+  &.small{
+    width: $grid-icon-size;
+    height: $grid-icon-size;
+  }
+  &.sorted{
+    transform: rotate(-180deg) ;
+    transition: all 0.5s ;
+  }
+  &.expanded{
+    transform : rotate(-180deg);
+    transition: all 0.5s;
+  }
+}
+
+
+.hidden {
+  display: none !important;
+}
+
+

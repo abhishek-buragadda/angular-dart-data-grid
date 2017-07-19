@@ -1,0 +1,55 @@
+<div class="custom-grid">
+    <paper-card class="paper-container">
+        <div class="actions-container">
+            <material-fab (click)="performAdd()" icon mini raised>
+                <glyph icon="add"></glyph>
+            </material-fab>
+            <material-fab (click)="performDelete()" [class.hidden]="!showDeleteAction()" icon mini raised>
+                <glyph icon="delete"></glyph>
+            </material-fab>
+        </div>
+        <table class="grid-container">
+            <thead class="grid-header">
+            <th class="grid-header-cell select-all">
+                <material-checkbox [(ngModel)]="isAllSelected" (change)="selectAll()">
+                </material-checkbox>
+            </th>
+            <th class="grid-header-cell" [class.sortable]="colHead.isSortable" (click)="sortColumn(colHead)" *ngFor="let colHead of tableModel.colHeaders">
+                <span *ngIf="colHead.isSortable" class="icon-container">
+                    <iron-icon class="small" [class.sorted]="!colHead.sortDirectionAsc"
+                               icon="icons:arrow-downward"></iron-icon>
+                </span>
+                {{colHead.displayName}}
+            </th>
+            <th class="grid-header-cell icons" *ngIf="isEditable">Actions</th>
+            </thead>
+            <tbody class="grid-body">
+            <tr *ngFor="let item of data;let i = index;" class="grid-row" [class.selected]="isSelected(i)">
+                <td class="grid-row-cell select">
+                    <material-checkbox [(ngModel)]="tableModel.rowModels[i].isSelected">
+                    </material-checkbox>
+                </td>
+                <td class="grid-row-cell" *ngFor="let colDef of colDefs;let colIndex=index" [class.show-hide]="isSelected(i)"
+                    (click)="showDetails(item,i)">
+                    <div class="text-content">
+                        {{getFieldValue(item,colDef.columnName)}}
+                    </div>
+                    <div class="icon-content" *ngIf="colIndex==0">
+                        <iron-icon [class.expanded]="isSelected(i)" class="small"  icon="icons:expand-more"></iron-icon>
+                    </div>
+                </td>
+                <td class="grid-row-cell icons" *ngIf="isEditable">
+                    <material-fab icon mini raised (click)="updateItem(item,$event,i)">
+                        <glyph *ngIf="tableModel.rowModels[i].inEditMode" icon="check"></glyph>
+                        <glyph *ngIf="!tableModel.rowModels[i].inEditMode" icon="edit"></glyph>
+                    </material-fab>
+                </td>
+                <td class="grid-row-details" [class.open]="currentSelected==i" *ngIf="rowDetails">
+                    <template [ngTemplateOutletCustom]="template" [ngTemplateOutletCustomContext]="item"></template>
+                </td>
+
+            </tr>
+            </tbody>
+        </table>
+    </paper-card>
+</div>

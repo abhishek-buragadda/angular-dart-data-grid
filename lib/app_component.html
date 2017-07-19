@@ -1,0 +1,10 @@
+<h3>Angular Dart Data Grid</h3>
+
+
+<custom-grid [showSelection]="true" [showActions]="true" (add)="add()" (delete)="delete($event)" [data]="sampleList"
+             [colDefs]="colDefs" [rowDetails]="true">
+    <template #rowDetail let-item>
+        This is detail of {{item.name}}
+    </template>
+
+</custom-grid>
