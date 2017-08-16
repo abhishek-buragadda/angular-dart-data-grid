@@ -1,8 +1,8 @@
-name: angular_dart_data_grid
-description: A web app that uses AngularDart Components
+name: angular_data_grid
+description: A simple data grid for dart angular.
 version: 0.0.1
-#homepage: https://www.example.com
-#author: aburagad <email@example.com>
+homepage: https://github.com/abhishek-buragadda/angular-dart-data-grid/
+author: abhishek buragadda <abhishek.b007@gmail.com>
 
 environment:
   sdk: '>=1.23.0 <2.0.0'
@@ -10,8 +10,8 @@ environment:
 dependencies:
   angular2: ^3.0.0
   angular_components: ^0.5.1
-  polymer: 1.0.0-rc.19
-  polymer_elements: 1.0.0-rc.10
+  polymer: ^1.0.0-rc.19
+  polymer_elements: ^1.0.0-rc.10
 
 dev_dependencies:
   angular_test: ^1.0.0-beta+2
