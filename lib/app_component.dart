@@ -3,8 +3,8 @@
 
 import 'package:angular2/angular2.dart';
 import 'package:angular_components/angular_components.dart';
-import 'src/model/column_model.dart';
-import 'src/custom-grid/custom_grid.dart';
+import 'package:angular_dart_data_grid/src/model/column_model.dart';
+import 'package:angular_dart_data_grid/src/custom-grid/custom_grid.dart';
 
 
 
@@ -14,8 +14,8 @@ import 'src/custom-grid/custom_grid.dart';
 
 @Component(
   selector: 'my-app',
-  styleUrls: const ['angular_data_gird.css'],
-  templateUrl: 'angular_data_grid.html',
+  styleUrls: const ['app_component.css'],
+  templateUrl: 'app_component.html',
   directives: const [materialDirectives, CustomGridComponent],
   providers: const [materialProviders],
 )

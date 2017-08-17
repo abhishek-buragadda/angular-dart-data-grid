@@ -7,7 +7,7 @@ import 'package:angular2/platform/browser.dart';
 import 'package:polymer/polymer.dart';
 import 'package:polymer_elements/paper_card.dart';
 
-import 'package:angular_dart_data_grid/angular_data_grid.dart';
+import 'package:angular_dart_data_grid/app_component.dart';
 
  main() async {
   await initPolymer();
